@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tìm Phòng Trọ</string>
+    <string name="app_name1">Thông tin phòng trọ</string>
+    <string name="app_name2">Thông tin ở ghép</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="tim_tro">Tìm trọ thật dễ!</string>
+    <string name="dang_o_ghep">Đăng tin ở ghép</string>
+    <string name="dang_cho_thue">Đăng tin cho thuê phòng</string>
+</resources>
