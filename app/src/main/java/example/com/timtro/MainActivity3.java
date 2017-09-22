@@ -15,10 +15,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class MainActivity3 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private EditText et1,et2,et3,et4;
     private Spinner spinner;
     private String[] language;
     private ArrayAdapter<String> spinnerAddapter;
@@ -38,6 +40,7 @@ public class MainActivity3 extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         spinner = (Spinner) findViewById(R.id.spiner1);
         language = getResources().getStringArray(R.array.gioi_tinh);
         spinnerAddapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,language);
@@ -55,24 +58,40 @@ public class MainActivity3 extends AppCompatActivity
         });
     }
     public void onClick(View view){
-        Snackbar.make(view, "Đăng tin thành công", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-        Thread bamgio=new Thread(){
-            public void run()
-            {
-                try {
-                    sleep(3000);
-                } catch (Exception e) {
-
-                }
-                finally
+        et1=(EditText) findViewById(R.id.et1) ;
+        et2=(EditText) findViewById(R.id.et2) ;
+        et3=(EditText) findViewById(R.id.et3) ;
+        et4=(EditText) findViewById(R.id.et4) ;
+        String str1 = et1.getText().toString();
+        String str2 = et2.getText().toString();
+        String str3 = et3.getText().toString();
+        String str4 = et4.getText().toString();
+        if(str1.length()>0&&str2.length()>0&&str3.length()>0&&str4.length()>0){
+            Snackbar.make(view, "Đăng tin thành công", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            Thread bamgio=new Thread(){
+                public void run()
                 {
-                    Intent activitymoi=new Intent("example.com.timtro.MainActivity");
-                    startActivity(activitymoi);
+                    try {
+                        sleep(2000);
+                    } catch (Exception e) {
+
+                    }
+                    finally
+                    {
+                        Intent activitymoi=new Intent("example.com.timtro.MainActivity");
+                        startActivity(activitymoi);
+                    }
                 }
-            }
-        };
-        bamgio.start();
+            };
+            bamgio.start();
+        }
+        else{
+            Snackbar.make(view, "Bạn chưa nhập đủ các trường bắt buộc.Hãy nhập lại!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
+
+
         // finish();
     }
 
