@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +19,8 @@ import android.view.View;
 
 public class MainActivity1 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +29,6 @@ public class MainActivity1 extends AppCompatActivity
         //tao chu tren thanh toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //tao su kien khi click vao nut vi tri
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Đang xác định vị trí của bạn", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
-            }
-        });
         //tao thanh menu va su kien khi click no
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -42,6 +38,18 @@ public class MainActivity1 extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        add();
+    }
+
+    private void add(){
+        viewPager = (ViewPager) findViewById(R.id.vp1);
+        tabLayout = (TabLayout) findViewById(R.id.tl1);
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentAdapter fragmentAdapter= new FragmentAdapter(fragmentManager);
+        fragmentAdapter.insertFragment(new Fragment1());
+        fragmentAdapter.insertFragment(new Fragment2());
+        viewPager.setAdapter(fragmentAdapter);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override

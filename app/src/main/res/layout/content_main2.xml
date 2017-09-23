@@ -10,7 +10,7 @@
     tools:showIn="@layout/app_bar_main2">
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

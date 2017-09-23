@@ -71,7 +71,7 @@
         <TextView
             android:textColor="@color/color3"
             android:layout_marginRight="10dp"
-            android:text="Thông tin liên hệ:"
+            android:text="SĐT liên hệ:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <EditText

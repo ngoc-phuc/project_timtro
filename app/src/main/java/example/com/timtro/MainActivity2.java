@@ -10,23 +10,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    ListView lv;
-    final String[] subject = {"Hương", "Phúc", "Linh", "Cương"};
+    private CustomListItemAdapter adapter=null;
+    private ArrayList<PhongTro> list;
+    private ListView listView;
+    //final String[] subject = {"Hương", "Phúc", "Linh", "Cương"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        lv = (ListView)findViewById(R.id.listView);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (MainActivity2.this,android.R.layout.simple_list_item_1, subject);
+        listView = (ListView)findViewById(R.id.lv);
+        list =new ArrayList<PhongTro>();
+        list.add(new PhongTro("k82/5 nguyễn lương bằng","01639884299","700/tháng"));
+        list.add(new PhongTro("k82/15 nguyễn lương bằng","0165738493","900/tháng"));
+        list.add(new PhongTro("k02/5 Ngô Sĩ Liên","01639884299","700/tháng"));
+        list.add(new PhongTro("k97/12 Đồng kè","0168594038","1000/tháng"));
+        adapter=new CustomListItemAdapter(this,R.layout.customlist_view_activity2,list);
+        /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,subject)*/;
+        listView.setAdapter(adapter);
 
-        lv.setAdapter(adapter);
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(MainActivity2.this, MainActivity1.class);
+                        startActivity(intent);
+                    }
+                }
+        );
 
         //tao chu tren thanh toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

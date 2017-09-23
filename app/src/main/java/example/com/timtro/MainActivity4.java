@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity4 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,30 +65,50 @@ public class MainActivity4 extends AppCompatActivity
         String str2 = et2.getText().toString();
         String str3 = et3.getText().toString();
         String str4 = et4.getText().toString();
-        if(str1.length()>0&&str2.length()>0&&str3.length()>0&&str4.length()>0){
-            Snackbar.make(view, "Đăng tin thành công", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            Thread bamgio=new Thread(){
-                public void run()
-                {
-                    try {
-                        sleep(2000);
-                    } catch (Exception e) {
+        if(str1.length()==0){
+            Toast.makeText(MainActivity4.this,"Hãy nhập địa chỉ trọ.",Toast.LENGTH_LONG).show();
 
-                    }
-                    finally
-                    {
-                        Intent activitymoi=new Intent("example.com.timtro.MainActivity");
-                        startActivity(activitymoi);
-                    }
-                }
-            };
-            bamgio.start();
         }
         else{
-            Snackbar.make(view, "Bạn chưa nhập đủ các trường bắt buộc.Hãy nhập lại!", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
+            if(str2.length()==0){
+                Toast.makeText(MainActivity4.this, "Hãy nhập giá tiền.",Toast.LENGTH_LONG).show();
+            }
+            else {
+                if(str3.length()==0){
+                    Toast.makeText(MainActivity4.this, "Hãy nhập diện tích.",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    if(str4.length()==0){
+                        Toast.makeText(MainActivity4.this, "Hãy nhập SĐT liên hệ.",Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        if(str4.length()<10){
+                            Toast.makeText(MainActivity4.this, "SĐT liên hệ không hợp lệ.",Toast.LENGTH_LONG).show();
+                        }
+                            else{
+                                Snackbar.make(view, "Đăng tin thành công", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                                Thread bamgio=new Thread(){
+                                    public void run()
+                                    {
+                                        try {
+                                            sleep(2000);
+                                        } catch (Exception e) {
+
+                                        }
+                                        finally
+                                        {
+                                            Intent activitymoi=new Intent("example.com.timtro.MainActivity");
+                                            startActivity(activitymoi);
+                                        }
+                                    }
+                                };
+                                bamgio.start();
+                             }
+                         }
+                    }
+                }
+            }
     }
 
     @Override
