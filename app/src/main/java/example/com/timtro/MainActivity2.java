@@ -31,10 +31,10 @@ public class MainActivity2 extends AppCompatActivity
         setContentView(R.layout.activity_main2);
         listView = (ListView)findViewById(R.id.lv);
         list =new ArrayList<PhongTro>();
-        list.add(new PhongTro("k82/5 nguyễn lương bằng","01639884299","700/tháng"));
-        list.add(new PhongTro("k82/15 nguyễn lương bằng","0165738493","900/tháng"));
-        list.add(new PhongTro("k02/5 Ngô Sĩ Liên","01639884299","700/tháng"));
-        list.add(new PhongTro("k97/12 Đồng kè","0168594038","1000/tháng"));
+        list.add(new PhongTro("k82/5 nguyễn lương bằng","01639884299","700/tháng","Nữ"));
+        list.add(new PhongTro("k82/15 nguyễn lương bằng","0165738493","900/tháng","Nam"));
+        list.add(new PhongTro("k02/5 Ngô Sĩ Liên","01639884299","700/tháng","Nam"));
+        list.add(new PhongTro("k97/12 Đồng kè","0168594038","1000/tháng","Nữ"));
         adapter=new CustomListItemAdapter(this,R.layout.customlist_view_activity2,list);
         /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,subject)*/;
         listView.setAdapter(adapter);

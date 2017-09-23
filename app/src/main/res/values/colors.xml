@@ -8,6 +8,8 @@
     <color name="color2">#87CEEB</color>
     <color name="color3">#1C1C1C</color>
     <color name="color_while">#ffffff</color>
-    <color name="color_red">#f13939</color>
+    <color name="color_red">#e77963</color>
     <color name="color_4">#5beccf</color>
+    <color name="color_5">#d4faff</color>
+    <color name="color_6">#cc5ae2</color>
 </resources>

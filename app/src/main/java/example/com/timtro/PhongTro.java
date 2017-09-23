@@ -10,12 +10,21 @@ public class PhongTro {
    // private  String thongtinchu;
     private String giatien;
    // private int anh;
-  //  private String chitiet;
+    private String chitiet;
 
-    public PhongTro(String diachi, String sdt, String giatien) {
+    public PhongTro(String diachi, String sdt, String giatien,String chitiet) {
         this.diachi = diachi;
         this.sdt = sdt;
         this.giatien = giatien;
+        this.chitiet=chitiet;
+    }
+
+    public String getChitiet() {
+        return chitiet;
+    }
+
+    public void setChitiet(String chitiet) {
+        this.chitiet = chitiet;
     }
 
     public PhongTro() {

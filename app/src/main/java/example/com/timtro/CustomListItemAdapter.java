@@ -44,7 +44,8 @@ public class CustomListItemAdapter extends ArrayAdapter<PhongTro> {
         textView2.setText(list.get(position).getDiachi());
         TextView textView3 =(TextView) convertView.findViewById(R.id.tv3);
         textView3.setText(list.get(position).getSdt());
-
+        TextView textView4 =(TextView) convertView.findViewById(R.id.tv4);
+        textView3.setText(list.get(position).getChitiet());
         return convertView;
     }
 }
